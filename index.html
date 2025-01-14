@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Завтраки с Любовью — Исправленные Фотографии</title>
+  
+  <!-- Шрифты -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    :root {
+      /* Новая цветовая схема */
+      --color-bg: #1e1e2f;        /* Тёмный фон */
+      --color-text: #e0e0e0;      /* Светлый текст */
+      --color-heading: #ffdd57;   /* Яркие заголовки */
+      --color-accent: #ff6b6b;    /* Акцентные цвета */
+      --color-white: #ffffff;
+      --color-overlay: rgba(30, 30, 47, 0.85);
+
+      --font-decor: 'Playfair Display', serif;
+      --font-main: 'Poppins', sans-serif;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: var(--color-bg);
+      color: var(--color-text);
+      font-family: var(--font-main);
+      line-height: 1.6;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+      border-radius: 8px;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+      transition: color 0.3s ease;
+    }
+    a:hover {
+      color: var(--color-accent);
+    }
+
+    /* Кнопка призыва к действию */
+    .btn-cta {
+      background-color: var(--color-accent);
+      color: var(--color-white);
+      border: none;
+      padding: 0.9rem 1.5rem;
+      font-size: 1rem;
+      text-transform: uppercase;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.3s;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+    .btn-cta:hover {
+      background-color: #e85a5a;
+      transform: translateY(-3px);
+    }
+
+    /* Шапка */
+    header {
+      width: 100%;
+      min-height: 80vh;
+      background: url('https://via.placeholder.com/1200x800/2c3e50/ffffff?text=Morning+Love') no-repeat center/cover;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      text-align: center;
+    }
+    header::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: var(--color-overlay);
+      z-index: 1;
+    }
+    .header-content {
+      position: relative;
+      z-index: 2;
+      color: var(--color-white);
+      max-width: 700px;
+      padding: 20px;
+    }
+    .header-content h1 {
+      font-family: var(--font-decor);
+      font-size: 4.5rem;
+      margin-bottom: 1rem;
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+    }
+    .header-content p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      color: #d1d1d1;
+    }
+
+    /* Украшение */
+    .ornament {
+      font-family: var(--font-decor);
+      font-size: 2.5rem;
+      color: var(--color-accent);
+      margin-bottom: 1.5rem;
+    }
+
+    /* Секция меню */
+    .menu-section {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 60px 20px;
+      text-align: center;
+    }
+    .menu-section h2 {
+      font-family: var(--font-decor);
+      font-size: 3.5rem;
+      color: var(--color-heading);
+      margin-bottom: 0.5rem;
+    }
+    .menu-section p.subtitle {
+      font-size: 1.1rem;
+      color: #b0b0b0;
+      margin-bottom: 2.5rem;
+    }
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 40px;
+    }
+
+    /* Карточки */
+    .menu-card {
+      background-color: #2c2c3e;
+      border-radius: 12px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+      overflow: hidden;
+      position: relative;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeInUp 0.8s forwards;
+    }
+    .menu-card:nth-child(1) { animation-delay: 0.1s; }
+    .menu-card:nth-child(2) { animation-delay: 0.2s; }
+    .menu-card:nth-child(3) { animation-delay: 0.3s; }
+    .menu-card:nth-child(4) { animation-delay: 0.4s; }
+    .menu-card:nth-child(5) { animation-delay: 0.5s; }
+    .menu-card:nth-child(6) { animation-delay: 0.6s; }
+
+    .menu-card:hover {
+      transform: translateY(-7px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.35);
+    }
+
+    .menu-card img {
+      width: 100%;
+      height: 250px; 
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+    .menu-card:hover img {
+      transform: scale(1.05);
+    }
+
+    .menu-card-content {
+      padding: 20px;
+    }
+    .menu-card h3 {
+      color: var(--color-heading);
+      font-size: 1.6rem;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+      font-family: var(--font-main);
+    }
+    .menu-card p {
+      color: #b0b0b0;
+      font-size: 1rem;
+      margin-bottom: 0.75rem;
+    }
+    .menu-card .price {
+      color: var(--color-accent);
+      font-weight: 600;
+      margin-bottom: 1rem;
+      font-family: var(--font-main);
+    }
+
+    @keyframes fadeInUp {
+      0% {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Секция заказа */
+    .order-section {
+      padding: 60px 20px;
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+      background-color: #2c2c3e;
+      border-radius: 12px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+    }
+    .order-section h2 {
+      font-family: var(--font-decor);
+      font-size: 3.5rem;
+      color: var(--color-heading);
+      margin-bottom: 0.5rem;
+    }
+    .order-section .subtitle {
+      font-size: 1.1rem;
+      color: #b0b0b0;
+      margin-bottom: 2.5rem;
+    }
+    .order-form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .order-form input,
+    .order-form select,
+    .order-form textarea {
+      width: 100%;
+      border: 1px solid #555;
+      padding: 14px;
+      font-size: 1rem;
+      border-radius: 8px;
+      font-family: var(--font-main);
+      color: var(--color-text);
+      background-color: #3a3a52;
+    }
+    .order-form input::placeholder,
+    .order-form select::placeholder,
+    .order-form textarea::placeholder {
+      color: #888;
+    }
+    .order-form input:focus,
+    .order-form select:focus,
+    .order-form textarea:focus {
+      outline: none;
+      border-color: var(--color-accent);
+      box-shadow: 0 0 5px var(--color-accent);
+    }
+    .order-form button {
+      background-color: var(--color-accent);
+      color: var(--color-white);
+      padding: 14px;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background 0.3s, transform 0.3s;
+      font-family: var(--font-main);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+    .order-form button:hover {
+      background-color: #e85a5a;
+      transform: translateY(-3px);
+    }
+
+    /* Подвал */
+    footer {
+      background-color: #1e1e2f;
+      color: #b0b0b0;
+      text-align: center;
+      padding: 20px 0;
+      font-size: 0.9rem;
+    }
+    footer p {
+      margin: 0;
+    }
+
+    /* Адаптивность */
+    @media (max-width: 768px) {
+      .header-content h1 {
+        font-size: 3rem;
+      }
+      .menu-section h2 {
+        font-size: 2.5rem;
+      }
+      .header-content p {
+        font-size: 1rem;
+      }
+      .order-section h2 {
+        font-size: 2.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  
+  <!-- ============================
+       ШАПКА
+       ============================ -->
+  <header>
+    <div class="header-content">
+      <h1>Завтраки с Любовью</h1>
+      <p>Каждое блюдо приправлено искренними чувствами и лёгкой пикантностью</p>
+      <button class="btn-cta" onclick="document.getElementById('order').scrollIntoView({behavior:'smooth'})">
+        Заказать
+      </button>
+    </div>
+  </header>
+
+  <!-- ============================
+       МЕНЮ (6 блюд)
+       ============================ -->
+  <section class="menu-section" id="breakfast">
+    <h2>Выбери свой Завтрак</h2>
+    <div class="ornament">~ ~ ~</div>
+    <p class="subtitle">Пусть утро будет особенным, каким бы ты его ни представил</p>
+    
+    <div class="menu-grid">
+      <!-- 1. Блинчики с мёдом (стопка блинчиков с ягодами и мёдом) -->
+      <div class="menu-card">
+        <img 
+          src="https://i.ibb.co/3yGf4LR/bc265e0cad918ec8845d5cf32e90ab12.jpg" 
+          alt="Блинчики с мёдом" />
+        <div class="menu-card-content">
+          <h3>Блинчики с мёдом</h3>
+          <p>Сладкие и тёплые, как твои прикосновения.</p>
+          <p class="price">Цена: за романтическое признание перед сном</p>
+        </div>
+      </div>
+
+      <!-- 2. Яичница с беконом (сковорода с яйцами и беконом) -->
+      <div class="menu-card">
+        <img 
+          src="https://i.ibb.co/0nJCfMj/8365e3625fbf57f6c3ff491e1392fc9f.jpg" 
+          alt="Яичница с беконом" />
+        <div class="menu-card-content">
+          <h3>Яичница с беконом</h3>
+          <p>Сытно и питательно, чтобы сил хватило на всё.</p>
+          <p class="price">Цена: за медленные поцелуи на рассвете</p>
+        </div>
+      </div>
+
+      <!-- 3. Рыбный деликатес (лосось/семга на гренках) -->
+      <div class="menu-card">
+        <img 
+          src="https://i.ibb.co/vsbxyC3/48b26ae23d4777fd7972de7e4f25929d.jpg" 
+          alt="Рыбный деликатес" />
+        <div class="menu-card-content">
+          <h3>Рыбный деликатес</h3>
+          <p>Роскошь на тарелке, ведь ты этого заслуживаешь.</p>
+          <p class="price">Цена: за совместный душ поздним вечером</p>
+        </div>
+      </div>
+
+      <!-- 4. Бутерброд с колбасой (хлеб с колбасой салями) -->
+      <div class="menu-card">
+        <img 
+          src="https://i.ibb.co/56T6Bqq/image.jpg" 
+          alt="Бутерброд с колбасой" />
+        <div class="menu-card-content">
+          <h3>Бутерброд с колбасой</h3>
+          <p>Просто, но со вкусом — немного перчинки, если захочешь.</p>
+          <p class="price">Цена: за страстный поцелуй прямо на кухне</p>
+        </div>
+      </div>
+
+      <!-- 5. Лёгкая овсянка (миска с овсянкой) -->
+      <div class="menu-card">
+        <img 
+          src="https://i.ibb.co/BwCwZcd/image.jpg" 
+          alt="Лёгкая овсянка" />
+        <div class="menu-card-content">
+          <h3>Лёгкая овсянка</h3>
+          <p>Минимум калорий, максимум воображения.</p>
+          <p class="price">Цена: за утренние объятия под одеялом</p>
+        </div>
+      </div>
+
+      <!-- 6. Каша с бананом (нарезанные бананы) -->
+      <div class="menu-card">
+        <img 
+          src="https://i.ibb.co/7V2KS0c/image.jpg" 
+          alt="Каша с бананом" />
+        <div class="menu-card-content">
+          <h3>Каша с бананом</h3>
+          <p>Нежная овсянка, чтобы твой день начинался со сладких эмоций.</p>
+          <p class="price">Цена: за хороший массаж вечером</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================
+       ORDER / RESERVATION SECTION
+       ============================ -->
+  <section class="order-section" id="order">
+    <h2>Закажи своё Утро</h2>
+    <div class="ornament">* * *</div>
+    <p class="subtitle">Заполни форму, и я воплощу все твои утренние желания</p>
+    
+    <form class="order-form" id="breakfast-order-form">
+      <input type="text" name="name" placeholder="Твоё имя" required />
+      <select name="dish" required>
+        <option value="" disabled selected>Выбери завтрак</option>
+        <option value="pancakes-honey">Блинчики с мёдом</option>
+        <option value="eggs-bacon">Яичница с беконом</option>
+        <option value="deluxe-fish">Рыбный деликатес</option>
+        <option value="sandwich-sausage">Бутерброд с колбасой</option>
+        <option value="oatmeal-light">Лёгкая овсянка</option>
+        <option value="oatmeal-banana">Каша с бананом</option>
+      </select>
+      <textarea name="message" rows="4" placeholder="Напиши, что бы ты ещё хотел..."></textarea>
+      <button type="submit">Отправить заказ</button>
+    </form>
+  </section>
+
+  <!-- ============================
+       ПОДВАЛ
+       ============================ -->
+  <footer>
+    <p>&copy; 2023 Завтраки с Любовью. Все права защищены.</p>
+  </footer>
+
+  <!-- JS для формы (демонстрационный) -->
+  <script>
+    document
+      .getElementById('breakfast-order-form')
+      .addEventListener('submit', function (e) {
+        e.preventDefault();
+        alert('Твой заказ принят! Скоро я приготовлю его с любовью ♥');
+        this.reset();
+      });
+  </script>
+</body>
+</html>
