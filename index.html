@@ -3,17 +3,80 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Завтраки с Любовью</title>
+  <title>Завтраки с Любовью - Идеальное Начало Вашего Дня</title>
   
-  <!-- Шрифты -->
+  <!-- Мета-теги для SEO -->
+  <meta name="description" content="Закажите изысканные завтраки, приготовленные с любовью. Быстрая доставка и неповторимый вкус для вашего идеального утра.">
+  <meta name="keywords" content="завтрак, доставка завтрака, вкусный завтрак, здоровый завтрак, романтический завтрак">
+  
+  <!-- Open Graph теги для социальных сетей -->
+  <meta property="og:title" content="Завтраки с Любовью - Идеальное Начало Вашего Дня">
+  <meta property="og:description" content="Закажите изысканные завтраки, приготовленные с любовью. Быстрая доставка и неповторимый вкус для вашего идеального утра.">
+  <meta property="og:image" content="https://i.ibb.co/7V2KS0c/image.jpg">
+  <meta property="og:url" content="https://вашсайт.com">
+  <meta property="og:type" content="website">
+  
+  <!-- Структурированные данные (JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FoodEstablishment",
+    "name": "Завтраки с Любовью",
+    "image": "https://i.ibb.co/7V2KS0c/image.jpg",
+    "@id": "",
+    "url": "https://вашсайт.com",
+    "telephone": "+7-123-456-7890",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "ул. Примерная, д. 1",
+      "addressLocality": "Москва",
+      "postalCode": "101000",
+      "addressCountry": "RU"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 55.7558,
+      "longitude": 37.6176
+    },
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+        "Sunday"
+      ],
+      "opens": "07:00",
+      "closes": "12:00"
+    },
+    "sameAs": [
+      "https://www.facebook.com/yourprofile",
+      "https://www.instagram.com/yourprofile",
+      "https://twitter.com/yourprofile"
+    ]
+  }
+  </script>
+  
+  <!-- Предварительная загрузка шрифтов -->
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&display=swap" as="style" onload="this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&display=swap"></noscript>
+  
+  <!-- Иконки Font Awesome -->
   <link
-    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&display=swap"
     rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512-pVn8fVOVHPi4nS7pGk5SGnTsPqjVIFs1eF9fL3x2WvBrVKVV4ENtO3YxXGSS3Bl7xrl0d6V6P9O27dGMuZtY5g=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
   />
-
+  
+  <!-- Минифицированный CSS -->
   <style>
     :root {
-      /* Новая цветовая схема */
+      /* Цветовая схема */
       --color-bg: #1e1e2f;        /* Тёмный фон */
       --color-text: #e0e0e0;      /* Светлый текст */
       --color-heading: #ffdd57;   /* Яркие заголовки */
@@ -25,7 +88,7 @@
       --font-main: 'Poppins', sans-serif;
     }
 
-    * {
+    *, *::before, *::after {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
@@ -36,12 +99,15 @@
       color: var(--color-text);
       font-family: var(--font-main);
       line-height: 1.6;
+      overflow-x: hidden;
     }
 
     img {
       display: block;
       max-width: 100%;
+      height: auto; /* Автоматическая высота для сохранения соотношения сторон */
       border-radius: 8px;
+      transition: transform 0.3s ease;
     }
 
     a {
@@ -75,12 +141,13 @@
     header {
       width: 100%;
       min-height: 80vh;
-      background: url('https://via.placeholder.com/1200x800/2c3e50/ffffff?text=Morning+Love') no-repeat center/cover;
+     
       display: flex;
       align-items: center;
       justify-content: center;
       position: relative;
       text-align: center;
+      padding: 20px;
     }
     header::before {
       content: "";
@@ -101,11 +168,16 @@
       font-size: 4.5rem;
       margin-bottom: 1rem;
       text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+      animation: fadeInUp 1s ease forwards;
+      opacity: 0;
     }
     .header-content p {
       font-size: 1.2rem;
       margin-bottom: 2rem;
       color: #d1d1d1;
+      animation: fadeInUp 1s ease forwards;
+      animation-delay: 0.5s;
+      opacity: 0;
     }
 
     /* Украшение */
@@ -114,6 +186,9 @@
       font-size: 2.5rem;
       color: var(--color-accent);
       margin-bottom: 1.5rem;
+      animation: fadeIn 1s ease forwards;
+      opacity: 0;
+      animation-delay: 1s;
     }
 
     /* Секция меню */
@@ -128,16 +203,25 @@
       font-size: 3.5rem;
       color: var(--color-heading);
       margin-bottom: 0.5rem;
+      animation: fadeInUp 1s ease forwards;
+      opacity: 0;
+      animation-delay: 1.5s;
     }
     .menu-section p.subtitle {
       font-size: 1.1rem;
       color: #b0b0b0;
       margin-bottom: 2.5rem;
+      animation: fadeInUp 1s ease forwards;
+      opacity: 0;
+      animation-delay: 1.8s;
     }
     .menu-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 40px;
+      animation: fadeInUp 1s ease forwards;
+      opacity: 0;
+      animation-delay: 2s;
     }
 
     /* Карточки */
@@ -152,12 +236,16 @@
       transform: translateY(30px);
       animation: fadeInUp 0.8s forwards;
     }
-    .menu-card:nth-child(1) { animation-delay: 0.1s; }
-    .menu-card:nth-child(2) { animation-delay: 0.2s; }
-    .menu-card:nth-child(3) { animation-delay: 0.3s; }
-    .menu-card:nth-child(4) { animation-delay: 0.4s; }
-    .menu-card:nth-child(5) { animation-delay: 0.5s; }
-    .menu-card:nth-child(6) { animation-delay: 0.6s; }
+    .menu-card:nth-child(1) { animation-delay: 2.1s; }
+    .menu-card:nth-child(2) { animation-delay: 2.2s; }
+    .menu-card:nth-child(3) { animation-delay: 2.3s; }
+    .menu-card:nth-child(4) { animation-delay: 2.4s; }
+    .menu-card:nth-child(5) { animation-delay: 2.5s; }
+    .menu-card:nth-child(6) { animation-delay: 2.6s; }
+    .menu-card:nth-child(7) { animation-delay: 2.7s; }
+    .menu-card:nth-child(8) { animation-delay: 2.8s; }
+    .menu-card:nth-child(9) { animation-delay: 2.9s; }
+    .menu-card:nth-child(10) { animation-delay: 3s; }
 
     .menu-card:hover {
       transform: translateY(-7px);
@@ -166,7 +254,7 @@
 
     .menu-card img {
       width: 100%;
-      height: 250px; 
+      height: auto; /* Автоматическая высота для сохранения соотношения сторон */
       object-fit: cover;
       transition: transform 0.3s ease;
     }
@@ -183,28 +271,103 @@
       margin-bottom: 0.5rem;
       font-weight: 600;
       font-family: var(--font-main);
+      animation: fadeInUp 0.5s ease forwards;
+      opacity: 0;
+      animation-delay: 0.3s;
     }
     .menu-card p {
       color: #b0b0b0;
       font-size: 1rem;
       margin-bottom: 0.75rem;
+      animation: fadeInUp 0.5s ease forwards;
+      opacity: 0;
+      animation-delay: 0.5s;
     }
     .menu-card .price {
       color: var(--color-accent);
       font-weight: 600;
       margin-bottom: 1rem;
       font-family: var(--font-main);
+      animation: fadeInUp 0.5s ease forwards;
+      opacity: 0;
+      animation-delay: 0.7s;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
     }
 
     @keyframes fadeInUp {
-      0% {
+      from {
         opacity: 0;
-        transform: translateY(30px);
+        transform: translateY(20px);
       }
-      100% {
+      to {
         opacity: 1;
         transform: translateY(0);
       }
+    }
+
+    /* Специальное Предложение */
+    .special-offer {
+      background-color: var(--color-heading);
+      color: var(--color-white);
+      padding: 40px 20px;
+      text-align: center;
+      position: relative;
+      margin: 40px 0;
+      border-radius: 12px;
+      animation: fadeInUp 1s ease forwards;
+      opacity: 0;
+      animation-delay: 3.1s;
+    }
+    .special-offer h2 {
+      font-family: var(--font-decor);
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+    .special-offer p {
+      font-size: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .special-offer img {
+      width: 150px;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+      margin-top: 20px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Моё Фото и Надпись */
+    .personal-photo {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px;
+      background-color: #2c2c3e;
+      border-radius: 12px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+      margin: 40px 0;
+      color: var(--color-white);
+      text-align: center;
+      animation: fadeInUp 1s ease forwards;
+      opacity: 0;
+      animation-delay: 3.5s;
+    }
+    .personal-photo img {
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 50%;
+      margin-bottom: 1rem;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    }
+    .personal-photo p {
+      font-size: 1.1rem;
     }
 
     /* Секция заказа */
@@ -216,17 +379,27 @@
       background-color: #2c2c3e;
       border-radius: 12px;
       box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+      color: var(--color-white);
+      animation: fadeInUp 1s ease forwards;
+      opacity: 0;
+      animation-delay: 4s;
     }
     .order-section h2 {
       font-family: var(--font-decor);
       font-size: 3.5rem;
       color: var(--color-heading);
       margin-bottom: 0.5rem;
+      animation: fadeInUp 1s ease forwards;
+      opacity: 0;
+      animation-delay: 4.1s;
     }
     .order-section .subtitle {
       font-size: 1.1rem;
       color: #b0b0b0;
       margin-bottom: 2.5rem;
+      animation: fadeInUp 1s ease forwards;
+      opacity: 0;
+      animation-delay: 4.3s;
     }
     .order-form {
       display: flex;
@@ -234,6 +407,9 @@
       gap: 20px;
       max-width: 600px;
       margin: 0 auto;
+      animation: fadeInUp 1s ease forwards;
+      opacity: 0;
+      animation-delay: 4.5s;
     }
     .order-form input,
     .order-form select,
@@ -246,6 +422,7 @@
       font-family: var(--font-main);
       color: var(--color-text);
       background-color: #3a3a52;
+      transition: border-color 0.3s, box-shadow 0.3s;
     }
     .order-form input::placeholder,
     .order-form select::placeholder,
@@ -276,13 +453,32 @@
       transform: translateY(-3px);
     }
 
+    /* Обращение Внимания */
+    .attention-notice {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 20px;
+      background-color: #fff3cd;
+      color: #856404;
+      border: 1px solid #ffeeba;
+      border-radius: 12px;
+      text-align: center;
+      font-size: 0.95rem;
+      animation: fadeInUp 1s ease forwards;
+      opacity: 0;
+      animation-delay: 4.7s;
+    }
+
     /* Подвал */
     footer {
-      background-color: #1e1e2f;
+      background-color: var(--color-bg);
       color: #b0b0b0;
       text-align: center;
       padding: 20px 0;
       font-size: 0.9rem;
+      animation: fadeInUp 1s ease forwards;
+      opacity: 0;
+      animation-delay: 5s;
     }
     footer p {
       margin: 0;
@@ -302,6 +498,42 @@
       .order-section h2 {
         font-size: 2.5rem;
       }
+      .special-offer h2,
+      .personal-photo p,
+      .order-section h2,
+      .attention-notice {
+        font-size: 1.5rem;
+      }
+      .menu-card img {
+        height: auto; /* Автоматическая высота на мобильных */
+      }
+      .special-offer img {
+        width: 120px;
+      }
+      .personal-photo img {
+        width: 150px;
+        height: 150px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .header-content h1 {
+        font-size: 2.5rem;
+      }
+      .menu-section h2,
+      .order-section h2 {
+        font-size: 2rem;
+      }
+      .btn-cta {
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+      }
+      .ornament {
+        font-size: 2rem;
+      }
+      .social-icons a {
+        font-size: 1.2rem;
+      }
     }
   </style>
 </head>
@@ -313,7 +545,7 @@
   <header>
     <div class="header-content">
       <h1>Завтраки с Любовью</h1>
-      <p>Каждое блюдо приправлено искренними чувствами и лёгкой пикантностью</p>
+      <p>Выбирай то, что подсказывает сердце и желудок. И пусть твой день начинается с вкусного -- это я и немножко еды.</p>
       <button class="btn-cta" onclick="document.getElementById('order').scrollIntoView({behavior:'smooth'})">
         Заказать
       </button>
@@ -321,7 +553,7 @@
   </header>
 
   <!-- ============================
-       МЕНЮ (6 блюд)
+       МЕНЮ (10 блюд)
        ============================ -->
   <section class="menu-section" id="breakfast">
     <h2>Выбери свой Завтрак</h2>
@@ -329,102 +561,178 @@
     <p class="subtitle">Пусть утро будет особенным, каким бы ты его ни представил</p>
     
     <div class="menu-grid">
-      <!-- 1. Блинчики с мёдом (стопка блинчиков с ягодами и мёдом) -->
+      <!-- 1. Блинчики тонкие со сгущенкой или медом -->
       <div class="menu-card">
         <img 
-          src="https://i.ibb.co/3yGf4LR/bc265e0cad918ec8845d5cf32e90ab12.jpg" 
-          alt="Блинчики с мёдом" />
+          src="https://i.ibb.co/BG1VpDM/84ff2a21-ea67-4628-a448-859b241f247f.jpg" 
+          alt="Блинчики тонкие со сгущенкой или медом" />
         <div class="menu-card-content">
-          <h3>Блинчики с мёдом</h3>
-          <p>Сладкие и тёплые, как твои прикосновения.</p>
-          <p class="price">Цена: за романтическое признание перед сном</p>
+          <h3>Блинчики тонкие со сгущенкой или медом</h3>
+          <p>Сладкие и тёплые, как утреннее солнце.</p>
+          <p class="price">Цена: эротический массаж 30 минут</p>
         </div>
       </div>
 
-      <!-- 2. Яичница с беконом (сковорода с яйцами и беконом) -->
+      <!-- 2. Овсяная каша на молоке с бананом -->
       <div class="menu-card">
         <img 
-          src="https://i.ibb.co/0nJCfMj/8365e3625fbf57f6c3ff491e1392fc9f.jpg" 
-          alt="Яичница с беконом" />
+          src="https://i.ibb.co/0YCnNYc/image.jpg" 
+          alt="Овсяная каша на молоке с бананом" />
         <div class="menu-card-content">
-          <h3>Яичница с беконом</h3>
-          <p>Сытно и питательно, чтобы сил хватило на всё.</p>
-          <p class="price">Цена: за медленные поцелуи на рассвете</p>
+          <h3>Овсяная каша на молоке с бананом</h3>
+          <p>Нежная овсянка, заряжающая энергией на весь день.</p>
+          <p class="price">Цена: страстный поцелуй во все губы.</p>
         </div>
       </div>
 
-      <!-- 3. Рыбный деликатес (лосось/семга на гренках) -->
+      <!-- 3. Омлет с сыром -->
       <div class="menu-card">
         <img 
-          src="https://i.ibb.co/vsbxyC3/48b26ae23d4777fd7972de7e4f25929d.jpg" 
-          alt="Рыбный деликатес" />
+          src="https://i.ibb.co/2WzFKNj/image.jpg" 
+          alt="Омлет с сыром" />
         <div class="menu-card-content">
-          <h3>Рыбный деликатес</h3>
-          <p>Роскошь на тарелке, ведь ты этого заслуживаешь.</p>
-          <p class="price">Цена: за совместный душ поздним вечером</p>
+          <h3>Омлет с сыром</h3>
+          <p>Сытный и ароматный, идеальный старт для любого дня.</p>
+          <p class="price">Цена: объятия и поцелуи, в новом месте, куда мы ещё не ходили</p>
         </div>
       </div>
 
-      <!-- 4. Бутерброд с колбасой (хлеб с колбасой салями) -->
+      <!-- 4. Яичница классическая -->
       <div class="menu-card">
         <img 
-          src="https://i.ibb.co/56T6Bqq/image.jpg" 
-          alt="Бутерброд с колбасой" />
+          src="https://i.ibb.co/FKr3thQ/image.jpg" 
+          alt="Яичница классическая" />
         <div class="menu-card-content">
-          <h3>Бутерброд с колбасой</h3>
-          <p>Просто, но со вкусом — немного перчинки, если захочешь.</p>
-          <p class="price">Цена: за страстный поцелуй прямо на кухне</p>
+          <h3>Яичница классическая</h3>
+          <p>Простая и вкусная, как утреннее пробуждение.</p>
+          <p class="price">Цена: 10 комплиментов в течение дня</p>
         </div>
       </div>
 
-      <!-- 5. Лёгкая овсянка (миска с овсянкой) -->
+      <!-- 5. Яичница с овощами -->
       <div class="menu-card">
         <img 
-          src="https://i.ibb.co/BwCwZcd/image.jpg" 
-          alt="Лёгкая овсянка" />
+          src="https://i.ibb.co/KX5fD99/13d0a47e-3bcc-4bf3-b27d-4f54d3ce0a70.jpg" 
+          alt="Яичница с овощами" />
         <div class="menu-card-content">
-          <h3>Лёгкая овсянка</h3>
-          <p>Минимум калорий, максимум воображения.</p>
-          <p class="price">Цена: за утренние объятия под одеялом</p>
+          <h3>Яичница с овощами</h3>
+          <p>Полезная и свежая, наполнит энергией на весь день.</p>
+          <p class="price">Цена: намылить мою жопку в душе и принять его со мной</p>
         </div>
       </div>
 
-      <!-- 6. Каша с бананом (нарезанные бананы) -->
+      <!-- 6. Шакшука с колбасой и овощами -->
       <div class="menu-card">
         <img 
-          src="https://i.ibb.co/7V2KS0c/image.jpg" 
-          alt="Каша с бананом" />
+          src="https://i.ibb.co/SrSpnrk/2a1c9ec9-aaa3-4b72-895f-ff501b35fe7f.jpg" 
+          alt="Шакшука с колбасой и овощами" />
         <div class="menu-card-content">
-          <h3>Каша с бананом</h3>
-          <p>Нежная овсянка, чтобы твой день начинался со сладких эмоций.</p>
-          <p class="price">Цена: за хороший массаж вечером</p>
+          <h3>Шакшука с колбасой и овощами</h3>
+          <p>Ароматная и пикантная, подарит незабываемый вкус утра.</p>
+          <p class="price">Цена: романтическое свидание</p>
+        </div>
+      </div>
+
+      <!-- 7. Горячий бутерброд с колбасой -->
+      <div class="menu-card">
+        <img 
+          src="https://i.ibb.co/ryBPJN4/image.jpg" 
+          alt="Горячий бутерброд с колбасой" />
+        <div class="menu-card-content">
+          <h3>Горячий бутерброд с колбасой</h3>
+          <p>Хрустящий и сытный, идеален для быстрого завтрака.</p>
+          <p class="price">Цена: посмотреть и обсудить фильм</p>
+        </div>
+      </div>
+
+      <!-- 8. Бутерброд с красной рыбой и сыром -->
+      <div class="menu-card">
+        <img 
+          src="https://i.ibb.co/QHjC13Y/image.jpg" 
+          alt="Бутерброд с красной рыбой и сыром" />
+        <div class="menu-card-content">
+          <h3>Бутерброд с красной рыбой и сыром</h3>
+          <p>Изысканное сочетание вкусов для утонченного гурмана.</p>
+          <p class="price">Цена: весь день соглашаться со мной во всём</p>
+        </div>
+      </div>
+
+      <!-- 9. Сырники со сгущенкой -->
+      <div class="menu-card">
+        <img 
+          src="https://i.ibb.co/LrnbqHm/image.jpg" 
+          alt="Сырники со сгущенкой" />
+        <div class="menu-card-content">
+          <h3>Сырники со сгущенкой</h3>
+          <p>Нежные и сладкие, как наша любовь.</p>
+          <p class="price">Цена: выполнить одно моё желание</p>
+        </div>
+      </div>
+
+      <!-- 10. Английский завтрак -->
+      <div class="menu-card">
+        <img 
+          src="https://i.ibb.co/9Y9G7dJ/image.jpg" 
+          alt="Английский завтрак" />
+        <div class="menu-card-content">
+          <h3>Английский завтрак</h3>
+          <p>Яйца, грибы, колбаса, фасоль, овощи - классическое сочетание для бодрого утра.</p>
+          <p class="price">Цена: выполнить одно моё желание</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- ============================
-       ORDER / RESERVATION SECTION
+       Специальное Предложение
+       ============================ -->
+  <section class="special-offer">
+    <h2>Специальное Предложение</h2>
+    <p>К каждому блюду подаётся крепкий горячий кофе! Чтобы у тебя тоже всегда был крепкий и горячий характер.</p>
+    <img src="https://i.ibb.co/dbPK07h/photo-5204082852201885488-x.jpg" alt="Крепкий горячий кофе" />
+  </section>
+
+  <!-- ============================
+       Моё Фото и Надпись
+       ============================ -->
+  <section class="personal-photo">
+    <img src="https://i.ibb.co/dbgQvSm/0dd31829-3178-4de6-af3e-b059b43ad0ac.jpg" alt="Моё фото" />
+    <p>Я уже сгораю от ожидания заказа! И готова выполнять твои пожелания.</p>
+  </section>
+
+  <!-- ============================
+       Форма для Заполнения
        ============================ -->
   <section class="order-section" id="order">
-    <h2>Закажи своё Утро</h2>
+    <h2>Закажи Свой Завтрак</h2>
     <div class="ornament">* * *</div>
-    <p class="subtitle">Заполни форму, и я воплощу все твои утренние желания</p>
+    <p class="subtitle">Заполни форму, и я подготовлю для тебя лучший завтрак!</p>
     
     <form class="order-form" id="breakfast-order-form">
-      <input type="text" name="name" placeholder="Твоё имя" required />
-      <select name="dish" required>
+      <input type="text" name="name" placeholder="Твоё имя" required aria-label="Ваше имя" />
+      <select name="dish" required aria-label="Выбор завтрака">
         <option value="" disabled selected>Выбери завтрак</option>
-        <option value="pancakes-honey">Блинчики с мёдом</option>
-        <option value="eggs-bacon">Яичница с беконом</option>
-        <option value="deluxe-fish">Рыбный деликатес</option>
-        <option value="sandwich-sausage">Бутерброд с колбасой</option>
-        <option value="oatmeal-light">Лёгкая овсянка</option>
-        <option value="oatmeal-banana">Каша с бананом</option>
+        <option value="pancakes_honey">Блинчики тонкие со сгущенкой или медом</option>
+        <option value="oatmeal_banana">Овсяная каша на молоке с бананом</option>
+        <option value="omelette_cheese">Омлет с сыром и зеленью</option>
+        <option value="classic_eggs">Яичница классическая</option>
+        <option value="eggs_vegetables">Яичница с овощами</option>
+        <option value="shakshuka_sausage">Шакшука с колбасой и овощами</option>
+        <option value="hot_sandwich">Горячий бутерброд с колбасой</option>
+        <option value="salmon_sandwich">Бутерброд с красной рыбой и сыром</option>
+        <option value="syrniki_condensed_milk">Сырники со сгущенкой</option>
+        <option value="english_breakfast">Английский завтрак</option>
       </select>
-      <textarea name="message" rows="4" placeholder="Напиши, что бы ты ещё хотел..."></textarea>
+      <textarea name="message" rows="4" placeholder="Напиши, что бы ты ещё хотел..." aria-label="Дополнительные пожелания"></textarea>
       <button type="submit">Отправить заказ</button>
     </form>
+  </section>
+
+  <!-- ============================
+       Обращение Внимания
+       ============================ -->
+  <section class="attention-notice">
+    <p>Обращаем ваше внимание, что завтрак готовится только из свежих продуктов, купленных заказчиком. Длительность приготовления до 30 минут с момента доставки необходимых товаров на кухню.</p>
   </section>
 
   <!-- ============================
@@ -432,6 +740,12 @@
        ============================ -->
   <footer>
     <p>&copy; 2025 Завтраки с Любовью. Все права защищены.</p>
+    <div class="social-icons">
+      <a href="https://www.facebook.com/yourprofile" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://www.instagram.com/yourprofile" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="https://twitter.com/yourprofile" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+      <a href="https://www.pinterest.com/yourprofile" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a>
+    </div>
   </footer>
 
   <!-- JS для формы (демонстрационный) -->
