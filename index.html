@@ -105,7 +105,7 @@
     img {
       display: block;
       max-width: 100%;
-      height: auto; /* Автоматическая высота для сохранения соотношения сторон */
+      height: auto;
       border-radius: 8px;
       transition: transform 0.3s ease;
     }
@@ -141,7 +141,6 @@
     header {
       width: 100%;
       min-height: 80vh;
-     
       display: flex;
       align-items: center;
       justify-content: center;
@@ -254,7 +253,7 @@
 
     .menu-card img {
       width: 100%;
-      height: auto; /* Автоматическая высота для сохранения соотношения сторон */
+      height: auto;
       object-fit: cover;
       transition: transform 0.3s ease;
     }
@@ -311,35 +310,49 @@
 
     /* Специальное Предложение */
     .special-offer {
-      background-color: var(--color-heading);
+      background: linear-gradient(135deg, #2c2c3e, #1e1e2f);
       color: var(--color-white);
-      padding: 40px 20px;
+      padding: 60px 20px;
       text-align: center;
       position: relative;
-      margin: 40px 0;
-      border-radius: 12px;
+      margin: 60px 0;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
       animation: fadeInUp 1s ease forwards;
       opacity: 0;
       animation-delay: 3.1s;
     }
     .special-offer h2 {
       font-family: var(--font-decor);
-      font-size: 2rem;
-      margin-bottom: 1rem;
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
+      color: var(--color-heading);
+      text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
     }
     .special-offer p {
-      font-size: 1rem;
-      margin-bottom: 1.5rem;
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+      color: #d1d1d1;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
     }
     .special-offer img {
-      width: 150px;
-      height: auto;
-      border-radius: 8px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+      width: 200px; /* Размер фото кофе */
+      height: 200px;
+      border-radius: 50%; /* Круглое фото */
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
       margin-top: 20px;
       display: block;
       margin-left: auto;
       margin-right: auto;
+      transition: transform 0.3s ease;
+      animation: fadeIn 1s ease forwards;
+      opacity: 0;
+      animation-delay: 3.3s;
+    }
+    .special-offer img:hover {
+      transform: scale(1.05);
     }
 
     /* Моё Фото и Надпись */
@@ -347,11 +360,11 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding: 40px 20px;
+      padding: 60px 20px;
       background-color: #2c2c3e;
-      border-radius: 12px;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.3);
-      margin: 40px 0;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      margin: 60px 0;
       color: var(--color-white);
       text-align: center;
       animation: fadeInUp 1s ease forwards;
@@ -359,15 +372,23 @@
       animation-delay: 3.5s;
     }
     .personal-photo img {
-      width: 200px;
-      height: 200px;
-      object-fit: cover;
-      border-radius: 50%;
-      margin-bottom: 1rem;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+      width: 300px; /* Полное фото */
+      height: auto; /* Сохраняем пропорции */
+      border-radius: 8px; /* Убрали круглую обрезку */
+      margin-bottom: 1.5rem;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease;
+      animation: fadeIn 1s ease forwards;
+      opacity: 0;
+      animation-delay: 3.7s;
+    }
+    .personal-photo img:hover {
+      transform: scale(1.05);
     }
     .personal-photo p {
-      font-size: 1.1rem;
+      font-size: 1.2rem;
+      max-width: 500px;
+      margin: 0 auto;
     }
 
     /* Секция заказа */
@@ -505,14 +526,15 @@
         font-size: 1.5rem;
       }
       .menu-card img {
-        height: auto; /* Автоматическая высота на мобильных */
+        height: auto;
       }
       .special-offer img {
-        width: 120px;
-      }
-      .personal-photo img {
         width: 150px;
         height: 150px;
+      }
+      .personal-photo img {
+        width: 250px;
+        height: auto;
       }
     }
 
@@ -545,7 +567,7 @@
   <header>
     <div class="header-content">
       <h1>Завтраки с Любовью</h1>
-      <p>Выбирай то, что подсказывает сердце и желудок. И пусть твой день начинается с вкусного -- это я и немножко еды.</p>
+      <p>Выбирай то, что подсказывает сердце и желудок! И пусть день начинается с ярких эмоций.</p>
       <button class="btn-cta" onclick="document.getElementById('order').scrollIntoView({behavior:'smooth'})">
         Заказать
       </button>
@@ -688,7 +710,7 @@
        ============================ -->
   <section class="special-offer">
     <h2>Специальное Предложение</h2>
-    <p>К каждому блюду подаётся крепкий горячий кофе! Чтобы у тебя тоже всегда был крепкий и горячий характер.</p>
+    <p>К каждому блюду подаётся крепкий горячий кофе! Чтобы у тебя всегда был крепкий и горячий .... характер.</p>
     <img src="https://i.ibb.co/dbPK07h/photo-5204082852201885488-x.jpg" alt="Крепкий горячий кофе" />
   </section>
 
@@ -712,16 +734,16 @@
       <input type="text" name="name" placeholder="Твоё имя" required aria-label="Ваше имя" />
       <select name="dish" required aria-label="Выбор завтрака">
         <option value="" disabled selected>Выбери завтрак</option>
-        <option value="pancakes_honey">Блинчики тонкие со сгущенкой или медом</option>
-        <option value="oatmeal_banana">Овсяная каша на молоке с бананом</option>
-        <option value="omelette_cheese">Омлет с сыром и зеленью</option>
-        <option value="classic_eggs">Яичница классическая</option>
-        <option value="eggs_vegetables">Яичница с овощами</option>
-        <option value="shakshuka_sausage">Шакшука с колбасой и овощами</option>
-        <option value="hot_sandwich">Горячий бутерброд с колбасой</option>
-        <option value="salmon_sandwich">Бутерброд с красной рыбой и сыром</option>
-        <option value="syrniki_condensed_milk">Сырники со сгущенкой</option>
-        <option value="english_breakfast">Английский завтрак</option>
+        <option value="Блинчики тонкие со сгущенкой или медом">Блинчики тонкие со сгущенкой или медом</option>
+        <option value="Овсяная каша на молоке с бананом">Овсяная каша на молоке с бананом</option>
+        <option value="Омлет с сыром и зеленью">Омлет с сыром и зеленью</option>
+        <option value="Яичница классическая">Яичница классическая</option>
+        <option value="Яичница с овощами">Яичница с овощами</option>
+        <option value="Шакшука с колбасой и овощами">Шакшука с колбасой и овощами</option>
+        <option value="Горячий бутерброд с колбасой">Горячий бутерброд с колбасой</option>
+        <option value="Бутерброд с красной рыбой и сыром">Бутерброд с красной рыбой и сыром</option>
+        <option value="Сырники со сгущенкой">Сырники со сгущенкой</option>
+        <option value="Английский завтрак">Английский завтрак</option>
       </select>
       <textarea name="message" rows="4" placeholder="Напиши, что бы ты ещё хотел..." aria-label="Дополнительные пожелания"></textarea>
       <button type="submit">Отправить заказ</button>
@@ -748,14 +770,62 @@
     </div>
   </footer>
 
-  <!-- JS для формы (демонстрационный) -->
+  <!-- JS для отправки заявок в Telegram -->
   <script>
+    const BOT_TOKEN = '7556461091:AAFeYNq-wtheme_qa812yZkBJiQY5dw244I'; // Новый токен бота
+    const CHAT_ID = '657135419'; // Новый ID чата
+
+    // Функция для отправки данных в Telegram
+    async function sendToTelegram(message) {
+      const url = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`;
+      const params = {
+        chat_id: CHAT_ID,
+        text: message,
+        parse_mode: 'HTML',
+      };
+
+      try {
+        const response = await fetch(url, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(params),
+        });
+
+        if (!response.ok) {
+          throw new Error('Ошибка при отправке сообщения в Telegram');
+        }
+      } catch (error) {
+        console.error('Ошибка:', error);
+      }
+    }
+
+    // Обработчик формы
     document
       .getElementById('breakfast-order-form')
       .addEventListener('submit', function (e) {
         e.preventDefault();
-        alert('Твой заказ принят! Скоро я приготовлю его с любовью ♥');
-        this.reset();
+
+        // Собираем данные из формы
+        const formData = new FormData(this);
+        const name = formData.get('name');
+        const dish = formData.get('dish');
+        const message = formData.get('message');
+
+        // Формируем сообщение для Telegram
+        const telegramMessage = `
+          <b>Новый заказ!</b>\n
+          <b>Имя:</b> ${name}\n
+          <b>Блюдо:</b> ${dish}\n
+          <b>Пожелания:</b> ${message || 'Нет пожеланий'}
+        `;
+
+        // Отправляем сообщение в Telegram
+        sendToTelegram(telegramMessage).then(() => {
+          alert('Твой заказ принят! Скоро я приготовлю его с любовью ♥');
+          this.reset();
+        });
       });
   </script>
 </body>
